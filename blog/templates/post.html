@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><!-- templates/post.html -->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-12 col-md-8">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h1 class="card-title mb-4">{{ post.title }}</h1>
+                <div class="text-muted mb-4">
+                    <span>作者：{{ post.author.username }}</span>
+                    <span class="ms-3">发布时间：{{ post.created_at.strftime('%Y-%m-%d %H:%M') }}</span>
+                </div>
+                <div class="content-box">
+                    {{ post.content | safe }}
+                </div>
+                <div class="mt-4">
+                    <a href="{{ url_for('index') }}" class="btn btn-outline-secondary">
+                        ← 返回列表
+                    </a>
+                    {% if post.author == current_user %}
+                    <a href="{{ url_for('delete_post', post_id=post.id) }}" 
+                       class="btn btn-danger float-end"
+                       onclick="return confirm('确认删除吗？')">
+                        删除文章
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}</title>
+</head>
+<body>
+
+</body>
+</html>

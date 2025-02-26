@@ -1,0 +1,18 @@
+<!-- login.html 和 register.html (结构相同) -->
+{% extends "base.html" %}
+{% block content %}
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h4 class="card-title mb-4">{% block title %}登录{% endblock %}</h4>
+        <form method="POST">
+            <div class="mb-3">
+                <input type="text" name="username" class="form-control form-control-lg" placeholder="用户名" required>
+            </div>
+            <div class="mb-3">
+                <input type="password" name="password" class="form-control form-control-lg" placeholder="密码" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100 btn-lg">提交</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

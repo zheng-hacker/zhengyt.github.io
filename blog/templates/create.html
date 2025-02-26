@@ -1,0 +1,18 @@
+<!-- create.html -->
+{% extends "base.html" %}
+{% block content %}
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h4 class="card-title mb-4">新建文章</h4>
+        <form method="POST">
+            <div class="mb-3">
+                <input type="text" name="title" class="form-control" placeholder="标题" required>
+            </div>
+            <div class="mb-3">
+                <textarea name="content" class="form-control" rows="5" placeholder="内容" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">发布</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
